@@ -7,7 +7,7 @@ import Script from "next/script";
 import ShareButtons from "../../components/ShareButtons"; // ← 根据实际路径调整
 
 
-export default function BlogPost({ title, content }) {
+export default function BlogPost({ title, content }: { title: string; content: string }) {
   // 复制当前网址
   function copyLink() {
     navigator.clipboard.writeText(window.location.href);
