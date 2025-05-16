@@ -86,7 +86,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: { params: { slug: string } }) {
   const filePath = path.join(process.cwd(), "posts", `${params.slug}.md`);
   const fileContents = fs.readFileSync(filePath, "utf8");
 
