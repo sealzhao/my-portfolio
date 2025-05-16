@@ -6,7 +6,13 @@ import Link from "next/link";
 interface BlogPost {
   slug: string;
   title: string;
+  date: string;
+  excerpt?: string;
+  tags?: string[];
+  author?: string;
+  coverImg?: string;
 }
+
 
 export default function Blog({ posts}: { posts: BlogPost[] }) {
   return (
@@ -35,11 +41,16 @@ export async function getStaticProps() {
     const fileContents = fs.readFileSync(filePath, "utf8");
     const { data } = matter(fileContents);
 
+
     return {
       slug: filename.replace(".md", ""),
       title: data.title,
-      date: String(data.date), // ✅ 转换为字符串
-    };
+      date: String(data.date),
+      excerpt: data.excerpt || "",
+      tags: data.tags || [],
+      author: data.author || "unknown",
+      coverImg: data.coverImg || null,
+      };
 
   });
 
