@@ -13,7 +13,7 @@ export default function Resume() {
       <section className="mb-6">
         <h2 className="text-2xl font-semibold">教育背景</h2>
         <ul className="list-disc list-inside">
-          <li>某某大学，本科，计算机科学，2020 - 2024</li>
+          <li>某某大学，本科，2020 - 2024</li>
         </ul>
       </section>
 
